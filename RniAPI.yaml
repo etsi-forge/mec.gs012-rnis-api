@@ -4164,9 +4164,11 @@ definitions:
       - _links
     properties:
       _links:
-        $ref: '#/definitions/LinkList'
+        $ref: '#/definitions/Link'
       subscription:
-        $ref: '#/definitions/Subscription'
+        type: array
+        items:
+          $ref: '#/definitions/Subscription'
   MeasRepUeSubscriptionPost:
     type: object
     required:
@@ -4399,16 +4401,6 @@ definitions:
     properties:
       self:
         $ref: '#/definitions/LinkType'
-    description: List of hyperlinks related to the resource
-  LinkList:
-    type: object
-    required:
-      - self
-    properties:
-      self:
-        $ref: '#/definitions/LinkType'
-      subscription:
-        $ref: '#/definitions/Subscription'
     description: List of hyperlinks related to the resource
   LinkType:
     description: URI referring to a resource
