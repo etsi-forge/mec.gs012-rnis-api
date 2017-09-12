@@ -348,7 +348,7 @@ parameters:
     items:
       type: string
 paths:
-  /resources/rab_info:
+  /queries/rab_info:
     get:
       description: >-
         Gets information on existing E-RABs that are associated with a specific
@@ -451,7 +451,7 @@ paths:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
       x-swagger-router-controller: Default
-  /resources/plmn_info:
+  /queries/plmn_info:
     get:
       description: >-
         Gets the information on Mobile Network(s) that are associated with a
@@ -526,7 +526,7 @@ paths:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
       x-swagger-router-controller: Default
-  /resources/s1_bearer_info:
+  /queries/s1_bearer_info:
     get:
       description: >-
         Gets information on existing E-RABs that are associated with a specific
@@ -670,7 +670,7 @@ paths:
               SubscriptionLinkList:
                 _links:
                   self: 'http://meAppServer.example.com/rni/v1/subscriptions'
-                  susbcription:
+                  subscription:
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/cell_change/77777
                       subscriptionType: CELL_CHANGE
@@ -748,7 +748,7 @@ paths:
               SubscriptionLinkList:
                 _links:
                   self: 'http://meAppServer.example.com/rni/v1/subscriptions/cell_change'
-                  susbcription:
+                  subscription:
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/cell_change/77777
                       subscriptionType: CELL_CHANGE
@@ -1133,7 +1133,7 @@ paths:
               SubscriptionLinkList:
                 _links:
                   self: 'http://meAppServer.example.com/rni/v1/subscriptions/s1_bearer'
-                  susbcription:
+                  subscription:
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/s1_bearer/77777
                       subscriptionType: S1_BEARER
@@ -1520,7 +1520,7 @@ paths:
               SubscriptionLinkList:
                 _links:
                   self: 'http://meAppServer.example.com/rni/v1/subscriptions/ta'
-                  susbcription:
+                  subscription:
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/ta/77777
                       subscriptionType: MEAS_ REPORT_UE
@@ -1908,7 +1908,7 @@ paths:
               SubscriptionLinkList:
                 _links:
                   self: 'http://meAppServer.example.com/rni/v1/subscriptions/meas_rep_ue'
-                  susbcription:
+                  subscription:
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/meas_rep_ue/77777
                       subscriptionType: MEAS_ REPORT_UE
@@ -2301,7 +2301,7 @@ paths:
               SubscriptionLinkList:
                 _links:
                   self: 'http://meAppServer.example.com/rni/v1/subscriptions/rab_est'
-                  susbcription:
+                  subscription:
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/rab_est/77777
                       subscriptionType: RAB_ESTABLISHMENT
@@ -2688,7 +2688,7 @@ paths:
               SubscriptionLinkList:
                 _links:
                   self: 'http://meAppServer.example.com/rni/v1/subscriptions/rab_mod'
-                  susbcription:
+                  subscription:
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/rab_mod/77777
                       subscriptionType: RAB_MODIFICATION
@@ -3075,7 +3075,7 @@ paths:
               SubscriptionLinkList:
                 _links:
                   self: 'http://meAppServer.example.com/rni/v1/subscriptions/rab_rel'
-                  susbcription:
+                  subscription:
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/rab_rel/77777
                       subscriptionType: RAB_RELEASE
@@ -3462,7 +3462,7 @@ paths:
               SubscriptionLinkList:
                 _links:
                   self: 'http://meAppServer.example.com/rni/v1/subscriptions/ca_reconf'
-                  susbcription:
+                  subscription:
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/ca_reconf/77777
                       subscriptionType: CA_RECONF
@@ -4108,15 +4108,16 @@ definitions:
         description: Numeric value (0-255) corresponding to specified type of identifier
         example: 'UE_IPV4_ADDRESS'
       value:
-        type: integer
-        format: int32
+        type: string
         description: Value for the identifier
-        example: 1
+        example: '192.168.10.1'
   ErabQosParameters:
     type: object
     properties:
       qci:
-        $ref: '#/definitions/ErabQosParameters_qci'
+        $ref: '#/definitions/Qci'
+      qos_information:
+        $ref: '#/definitions/QosInformation'
   Qci:
     type: integer
     format: int32
