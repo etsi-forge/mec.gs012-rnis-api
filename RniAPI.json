@@ -1979,7 +1979,7 @@
         }
       },
       "put": {
-        "description": "Update a subscription to S1 bearer notifications from Radio Network Information Service",
+        "description": "Updates a subscription to S1 bearer notifications from Radio Network Information Service",
         "operationId": "S1BearerSubscription_subscriptionsPUT",
         "produces": [
           "application/json",
@@ -3002,7 +3002,7 @@
     },
     "/subscriptions/meas_rep_ue/{subscriptionId}": {
       "get": {
-        "description": "Creates a subscription to UE measurement report notifications from Radio Network Information Service",
+        "description": "Gets a subscription to UE measurement report notifications from Radio Network Information Service",
         "operationId": "MeasRepUe_subscriptionsGET",
         "produces": [
           "application/json",
@@ -3576,7 +3576,7 @@
     },
     "/subscriptions/rab_est/{subscriptionId}": {
       "get": {
-        "description": "Creates a subscription to RAB establishment notifications from Radio Network Information Service",
+        "description": "Gets a subscription to RAB establishment notifications from Radio Network Information Service",
         "operationId": "RabEstSubscription_subscriptionsGET",
         "produces": [
           "application/json",
@@ -4150,7 +4150,7 @@
     },
     "/subscriptions/rab_mod/{subscriptionId}": {
       "get": {
-        "description": "Creates a subscription to RAB Modification notifications from Radio Network Information Service",
+        "description": "Gets a subscription to RAB Modification notifications from Radio Network Information Service",
         "operationId": "RabModSubscription_subscriptionsGET",
         "produces": [
           "application/json",
@@ -4724,7 +4724,7 @@
     },
     "/subscriptions/rab_rel/{subscriptionId}": {
       "get": {
-        "description": "Creates a subscription to RAB Release notifications from Radio Network Information Service",
+        "description": "Gets a subscription to RAB Release notifications from Radio Network Information Service",
         "operationId": "RabRelSubscription_subscriptionsGET",
         "produces": [
           "application/json",
@@ -5297,7 +5297,7 @@
     },
     "/subscriptions/ca_reconf/{subscriptionId}": {
       "get": {
-        "description": "Creates a subscription to Carrier Aggregation Reconfiguration notifications from Radio Network Information Service",
+        "description": "Gets a subscription to Carrier Aggregation Reconfiguration notifications from Radio Network Information Service",
         "operationId": "CaReConfSubscription_subscriptionsGET",
         "produces": [
           "application/json",

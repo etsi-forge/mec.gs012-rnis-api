@@ -1377,7 +1377,7 @@ paths:
                 $ref: '#/definitions/ProblemDetails'
     put:
       description: >-
-        Update a subscription to S1 bearer notifications from Radio Network
+        Updates a subscription to S1 bearer notifications from Radio Network
         Information Service
       operationId: S1BearerSubscription_subscriptionsPUT
       produces:
@@ -2071,7 +2071,7 @@ paths:
   '/subscriptions/meas_rep_ue/{subscriptionId}':
     get:
       description: >-
-        Creates a subscription to UE measurement report notifications from Radio
+        Gets a subscription to UE measurement report notifications from Radio
         Network Information Service
       operationId: MeasRepUe_subscriptionsGET
       produces:
@@ -2462,7 +2462,7 @@ paths:
   '/subscriptions/rab_est/{subscriptionId}':
     get:
       description: >-
-        Creates a subscription to RAB establishment notifications from Radio
+        Gets a subscription to RAB establishment notifications from Radio
         Network Information Service
       operationId: RabEstSubscription_subscriptionsGET
       produces:
@@ -2849,7 +2849,7 @@ paths:
   '/subscriptions/rab_mod/{subscriptionId}':
     get:
       description: >-
-        Creates a subscription to RAB Modification notifications from Radio
+        Gets a subscription to RAB Modification notifications from Radio
         Network Information Service
       operationId: RabModSubscription_subscriptionsGET
       produces:
@@ -3236,7 +3236,7 @@ paths:
   '/subscriptions/rab_rel/{subscriptionId}':
     get:
       description: >-
-        Creates a subscription to RAB Release notifications from Radio Network
+        Gets a subscription to RAB Release notifications from Radio Network
         Information Service
       operationId: RabRelSubscription_subscriptionsGET
       produces:
@@ -3624,7 +3624,7 @@ paths:
   '/subscriptions/ca_reconf/{subscriptionId}':
     get:
       description: >-
-        Creates a subscription to Carrier Aggregation Reconfiguration
+        Gets a subscription to Carrier Aggregation Reconfiguration
         notifications from Radio Network Information Service
       operationId: CaReConfSubscription_subscriptionsGET
       produces:
