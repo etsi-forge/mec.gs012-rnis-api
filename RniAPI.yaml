@@ -890,7 +890,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -1081,7 +1081,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -1275,7 +1275,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -1468,7 +1468,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -1663,7 +1663,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -1695,7 +1695,7 @@ paths:
           description: Subscription information regarding UE Timing Advance notifications
           schema:
             type: object
-            required: 
+            required:
               - MeasTaSubscription
             properties:
               MeasTaSubscription:
@@ -1856,7 +1856,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -2052,7 +2052,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -2249,7 +2249,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -2443,7 +2443,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -2475,7 +2475,7 @@ paths:
           description: Subscription information regarding RAB establishment notifications
           schema:
             type: object
-            required: 
+            required:
               - RabEstSubscription
             properties:
               RabEstSubscription:
@@ -2636,7 +2636,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -2830,7 +2830,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -2862,7 +2862,7 @@ paths:
           description: Subscription information regarding RAB Modification notifications
           schema:
             type: object
-            required: 
+            required:
               - RabModSubscription
             properties:
               RabModSubscription:
@@ -3023,7 +3023,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -3217,7 +3217,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -3410,7 +3410,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -3605,7 +3605,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -3800,7 +3800,7 @@ paths:
             properties:
               ProblemDetails:
                 $ref: '#/definitions/ProblemDetails'
-          examples: 
+          examples:
             'application/problem+json':
               ProblemDetails:
                 type: 'https://meAppServer.example.com/rni/v1/probs/too-many-targets'
@@ -3827,7 +3827,7 @@ paths:
           description: No Content
       x-swagger-router-controller: Default
 definitions:
-  ProblemDetails: 
+  ProblemDetails:
     type: object
     properties:
       type:
@@ -4021,7 +4021,7 @@ definitions:
     type: string
     format: string
     description: >-
-      Unique identifier allocated by the Mobile Edge application for the 
+      Unique identifier allocated by the Mobile Edge application for the
       Information request.
     example: '01'
   CellUserInfo:
