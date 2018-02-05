@@ -150,7 +150,7 @@ parameters:
         RabEstSubscription:
           $ref: '#/definitions/RabEstSubscription'
   Body.RabModSubscriptionPost:
-    name: RabEstSubscriptionPost
+    name: RabModSubscriptionPost
     in: body
     description: >-
       Use to creates a subscription to RAB Modification notifications based on
@@ -162,7 +162,7 @@ parameters:
         RabModSubscription:
           $ref: '#/definitions/RabModSubscriptionPost'
   Body.RabModSubscription:
-    name: RabEstSubscription
+    name: RabModSubscription
     in: body
     description: >-
       Use to creates a subscription to RAB Modification notifications based on
