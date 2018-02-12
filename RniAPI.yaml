@@ -571,7 +571,7 @@ paths:
                       plmn:
                         mcc: '001'
                         mnc: '01'
-                      cellid: '0x800000A'
+                      cellId: '0x800000A'
                     s1BearerInfoDetailed:
                       - erabId: 1
                         s1EnbInfo:
@@ -590,7 +590,7 @@ paths:
                       plmn:
                         mcc: '001'
                         mnc: '01'
-                      cellid: '0x800000B'
+                      cellId: '0x800000B'
                     s1BearerInfoDetailed:
                       - erabId: 2
                         s1EnbInfo:
@@ -4040,12 +4040,12 @@ definitions:
   Ecgi:
     type: object
     required:
-      - cellid
+      - cellId
       - plmn
     properties:
       plmn:
         $ref: '#/definitions/Plmn'
-      cellid:
+      cellId:
         $ref: '#/definitions/CellId'
     description: E-UTRAN CelI Global Identifier as defined in 3GPP TS 36.413
   Plmn:

@@ -771,7 +771,7 @@
                           "mcc": "001",
                           "mnc": "01"
                         },
-                        "cellid": "0x800000A"
+                        "cellId": "0x800000A"
                       },
                       "s1BearerInfoDetailed": [
                         {
@@ -801,7 +801,7 @@
                           "mcc": "001",
                           "mnc": "01"
                         },
-                        "cellid": "0x800000B"
+                        "cellId": "0x800000B"
                       },
                       "s1BearerInfoDetailed": [
                         {
@@ -5878,14 +5878,14 @@
     "Ecgi": {
       "type": "object",
       "required": [
-        "cellid",
+        "cellId",
         "plmn"
       ],
       "properties": {
         "plmn": {
           "$ref": "#/definitions/Plmn"
         },
-        "cellid": {
+        "cellId": {
           "$ref": "#/definitions/CellId"
         }
       },
