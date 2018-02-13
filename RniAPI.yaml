@@ -1523,10 +1523,10 @@ paths:
                   subscription:
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/ta/77777
-                      subscriptionType: MEAS_ REPORT_UE
+                      subscriptionType: MEAS_REPORT_UE
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/ta/77778
-                      subscriptionType: MEAS_ REPORT_UE
+                      subscriptionType: MEAS_REPORT_UE
         '400':
           description: Bad Request
           schema:
@@ -1911,10 +1911,10 @@ paths:
                   subscription:
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/meas_rep_ue/77777
-                      subscriptionType: MEAS_ REPORT_UE
+                      subscriptionType: MEAS_REPORT_UE
                     - href: >-
                         http://meAppClient.example.com/rni/v1/notifications/meas_rep_ue/77778
-                      subscriptionType: MEAS_ REPORT_UE
+                      subscriptionType: MEAS_REPORT_UE
         '400':
           description: Bad Request
           schema:
@@ -4428,7 +4428,7 @@ definitions:
       - RAB_ESTABLISHMENT
       - RAB_MODIFICATION
       - RAB_RELEASE
-      - MEAS_ REPORT_UE
+      - MEAS_REPORT_UE
       - MEAS_TIMING_ADVANCE
       - CA_RECONF
       - S1_BEARE

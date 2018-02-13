@@ -2185,11 +2185,11 @@
                     "susbcription": [
                       {
                         "href": "http://meAppClient.example.com/rni/v1/notifications/ta/77777",
-                        "subscriptionType": "MEAS_ REPORT_UE"
+                        "subscriptionType": "MEAS_REPORT_UE"
                       },
                       {
                         "href": "http://meAppClient.example.com/rni/v1/notifications/ta/77778",
-                        "subscriptionType": "MEAS_ REPORT_UE"
+                        "subscriptionType": "MEAS_REPORT_UE"
                       }
                     ]
                   }
@@ -2759,11 +2759,11 @@
                     "susbcription": [
                       {
                         "href": "http://meAppClient.example.com/rni/v1/notifications/meas_rep_ue/77777",
-                        "subscriptionType": "MEAS_ REPORT_UE"
+                        "subscriptionType": "MEAS_REPORT_UE"
                       },
                       {
                         "href": "http://meAppClient.example.com/rni/v1/notifications/meas_rep_ue/77778",
-                        "subscriptionType": "MEAS_ REPORT_UE"
+                        "subscriptionType": "MEAS_REPORT_UE"
                       }
                     ]
                   }
@@ -5973,7 +5973,10 @@
       "type": "object",
       "properties": {
         "qci": {
-          "$ref": "#/definitions/ErabQosParameters_qci"
+          "$ref": "#/definitions/Qci"
+        },
+        "qci_information": {
+          "$ref": "#/definitions/QosInformation"
         }
       }
     },
@@ -6407,7 +6410,7 @@
         "RAB_ESTABLISHMENT",
         "RAB_MODIFICATION",
         "RAB_RELEASE",
-        "MEAS_ REPORT_UE",
+        "MEAS_REPORT_UE",
         "MEAS_TIMING_ADVANCE",
         "CA_RECONF",
         "S1_BEARE"
@@ -6560,15 +6563,6 @@
         "EVENT_W3"
       ],
       "example": "EVENT_A3"
-    },
-    "ErabQosParameters_qci": {
-      "type": "object",
-      "properties": {
-        "qosInformation": {
-          "$ref": "#/definitions/QosInformation"
-        }
-      },
-      "description": "QoS Class Identifier as defined in TS 23.401"
     }
   }
 }
