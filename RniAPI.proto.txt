@@ -6,6 +6,9 @@ info:
 externalDocs: 
   description: ETSI GS MEC012 Radio Network Information API, V1.1.1
   url: 'http://www.etsi.org/deliver/etsi_gs/MEC/001_099/012/01.01.01_60/gs_mec012v010101p.pdf'
+license:
+  name: BSD-3-Clause
+  url: 'https://forge.etsi.org/legal-matters'
 */
 
 /* START PROTO DEFINITION*/
