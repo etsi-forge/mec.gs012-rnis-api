@@ -1,6 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
+    "contact": {
+      "url": "https://forge.etsi.org/rep/mec/gs012-rnis-api"
+    },
     "title": "ETSI GS MEC 012 - Radio Network Information API",
     "version": "2.1.1",
     "description": "The ETSI MEC ISG MEC012 Radio Network Information API described using OpenAPI.",
