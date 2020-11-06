@@ -19,10 +19,8 @@ message ExpiryNotification {
 
   ExpiryNotificationLinks Underscorelinks = 1;
 
-  // Time stamp.
   TimeStamp expiryDeadline = 2;
 
-  // Time stamp.
   TimeStamp timeStamp = 3;
 
 }

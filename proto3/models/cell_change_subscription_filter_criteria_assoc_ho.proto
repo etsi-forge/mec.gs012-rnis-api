@@ -26,7 +26,7 @@ message CellChangeSubscriptionFilterCriteriaAssocHo {
   // E-UTRAN Cell Global Identifier.
   repeated Ecgi ecgi = 3;
 
-  // In case hoStatus is not included in the subscription request, the default value 3 = COMPLETED shall be used and included in the response: 1 = IN_PREPARATION. 2 = IN_EXECUTION. 3 = COMPLETED. 4 = REJECTED. 5 = CANCELLED.
+  // In case hoStatus is not included in the subscription request, the default value 3 = COMPLETED shall be used and included in the response: <p>1 = IN_PREPARATION. <p>2 = IN_EXECUTION. <p>3 = COMPLETED. <p>4 = REJECTED. <p>5 = CANCELLED.
   repeated int32 hoStatus = 4;
 
 }

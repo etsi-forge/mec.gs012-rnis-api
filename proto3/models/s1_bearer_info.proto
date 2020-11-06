@@ -20,7 +20,6 @@ message S1BearerInfo {
   // Information on a specific UE as defined below.
   repeated S1BearerInfoS1UeInfo s1UeInfo = 1;
 
-  // Time stamp. 
   TimeStamp timeStamp = 2;
 
 }

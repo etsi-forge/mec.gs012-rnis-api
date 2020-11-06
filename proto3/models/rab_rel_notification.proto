@@ -22,7 +22,6 @@ message RabRelNotification {
   // 0 to N identifiers to bind the event for a specific UE or flow as defined below.
   repeated AssociateId associateId = 1;
 
-  // E-UTRAN Cell Global Identifier.
   Ecgi ecgi = 2;
 
   RabRelNotificationErabReleaseInfo erabReleaseInfo = 3;
@@ -30,7 +29,6 @@ message RabRelNotification {
   // Shall be set to \"RabRelNotification\".
   string notificationType = 4;
 
-  // Time stamp.
   TimeStamp timeStamp = 5;
 
 }

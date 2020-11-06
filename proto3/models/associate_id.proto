@@ -15,13 +15,13 @@ package mec012;
 
 message AssociateId {
 
-  // Numeric value (0-255) corresponding to specified type of identifier as following: 0 = reserved. 1= UE_IPv4_ADDRESS. 2 = UE_IPV6_ADDRESS. 3 = NATED_IP_ADDRESS. 4 = GTP_TEID.
+  // Numeric value (0-255) corresponding to specified type of identifier as following: <p>0 = reserved. <p>1 = UE_IPv4_ADDRESS. <p>2 = UE_IPV6_ADDRESS. <p>3 = NATED_IP_ADDRESS. <p>4 = GTP_TEID.
   enum TypeEnum {
-    _0_RESERVED = 0;
-    _1_UE_IPV4_ADDRESS = 1;
-    _2_UE_IPV6_ADDRESS = 2;
-    _3_NATED_IP_ADDRESS = 3;
-    _4_GTP_TEID = 4;
+    _0 = 0;
+    _1 = 1;
+    _2 = 2;
+    _3 = 3;
+    _4 = 4;
   }
 
   TypeEnum type = 1;

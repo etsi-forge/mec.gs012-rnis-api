@@ -21,13 +21,11 @@ message MeasTaNotification {
   // 0 to N identifiers to associate the event for a specific UE or flow.
   repeated AssociateId associateId = 1;
 
-  // E-UTRAN Cell Global Identifier.
   Ecgi ecgi = 2;
 
   // Shall be set to \"MeasTaNotification\".
   string notificationType = 3;
 
-  // Time stamp.
   TimeStamp timeStamp = 4;
 
   // The timing advance as defined in ETSI TS 136 214 [i.5].

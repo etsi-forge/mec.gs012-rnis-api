@@ -17,10 +17,8 @@ import public "models/results_per_ssb_index_list.proto";
 
 message RsIndexResults {
 
-  // Beam level measurement results based on CSI-RS related measurements.
   ResultsPerCsiRsIndexList resultsCsiRsIndexes = 1;
 
-  // Beam level measurement results based on SS/PBCH related measurements.
   ResultsPerSsbIndexList resultsSsbIndexes = 2;
 
 }

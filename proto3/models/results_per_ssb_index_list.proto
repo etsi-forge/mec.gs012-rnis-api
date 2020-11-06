@@ -12,10 +12,10 @@ syntax = "proto3";
 
 package mec012;
 
-import public "models/results_per_ssb_index.proto";
+import public "models/results_per_ssb_index_list_results_per_ssb_index.proto";
 
 message ResultsPerSsbIndexList {
 
-  repeated ResultsPerSsbIndex resultsPerSsbIndex = 1;
+  repeated ResultsPerSsbIndexListResultsPerSsbIndex resultsPerSsbIndex = 1;
 
 }

@@ -16,7 +16,6 @@ import public "models/ecgi.proto";
 
 message NrMeasRepUeNotificationEutraNeighCellMeasInfo {
 
-  // Cell Global Identifier.
   Ecgi ecgi = 1;
 
   // Reference Signal Received Power as defined in ETSI TS 138 331 [i.13].

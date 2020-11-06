@@ -17,7 +17,6 @@ import public "models/ecgi.proto";
 
 message L2MeasCellUEInfo {
 
-  // Identifier to associate the information for a specific UE or flow.
   AssociateId associateId = 1;
 
   // It indicates the data volume of the downlink GBR traffic of a UE, as defined in ETSI TS 136 314 [i.11].
@@ -44,7 +43,6 @@ message L2MeasCellUEInfo {
   // It indicates the scheduled throughput of the downlink nonGBR traffic of a UE, as defined in ETSI TS 136 314 [i.11].
   int32 dlUnderscorenongbrUnderscorethroughputUnderscoreue = 9;
 
-  // E-UTRAN Cell Global Identifier.
   Ecgi ecgi = 10;
 
   // It indicates the data volume of the uplink GBR traffic of a UE, as defined in ETSI TS 136 314 [i.11].

@@ -29,7 +29,6 @@ message MeasRepUeNotification {
   // This parameter can be repeated to contain information of all the carriers assign for Carrier Aggregation up to M.
   repeated MeasRepUeNotificationCarrierAggregationMeasInfo carrierAggregationMeasInfo = 2;
 
-  // E-UTRAN Cell Global Identifier of the Primary serving Cell (PCell), as defined in ETSI TS 136 331 [i.7].
   Ecgi ecgi = 3;
 
   // This parameter can be repeated to contain information of all the neighbouring cells up to N.
@@ -62,10 +61,8 @@ message MeasRepUeNotification {
   // Reference Signal \"Signal to Interference plus Noise Ratio\", with value mapping defined in ETSI TS 136 133 [i.16].
   int32 sinr = 13;
 
-  // Time stamp.
   TimeStamp timeStamp = 14;
 
-  // Corresponds to a specific E-UTRAN UE Measurement Report trigger.
   Trigger trigger = 15;
 
 }

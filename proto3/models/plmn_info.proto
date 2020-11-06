@@ -23,7 +23,6 @@ message PlmnInfo {
   // Public Land Mobile Network Identity.
   repeated Plmn plmn = 2;
 
-  // Time stamp.
   TimeStamp timeStamp = 3;
 
 }

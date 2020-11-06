@@ -12,10 +12,10 @@ syntax = "proto3";
 
 package mec012;
 
-import public "models/results_per_csi_rs_index.proto";
+import public "models/results_per_csi_rs_index_list_results_per_csi_rs_index.proto";
 
 message ResultsPerCsiRsIndexList {
 
-  repeated ResultsPerCsiRsIndex resultsPerCsiRsIndex = 1;
+  repeated ResultsPerCsiRsIndexListResultsPerCsiRsIndex resultsPerCsiRsIndex = 1;
 
 }

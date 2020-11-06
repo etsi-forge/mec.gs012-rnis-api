@@ -16,10 +16,9 @@ import public "models/plmn.proto";
 
 message NRcgi {
 
-  // NR Cell Global Identifier.
+  // String representing the NR Cell Identity. Encoded as a bit string (size (36)) as defined in ETSI TS 138 423 [i.17].
   string nrcellId = 1;
 
-  // Public Land Mobile Network Identity.
   Plmn plmn = 2;
 
 }

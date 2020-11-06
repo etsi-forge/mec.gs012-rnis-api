@@ -17,7 +17,6 @@ import public "models/rab_info_ue_info.proto";
 
 message RabInfoCellUserInfo {
 
-  // E-UTRAN Cell Global Identifier.
   Ecgi ecgi = 1;
 
   // Information on UEs in the specific cell as defined below.

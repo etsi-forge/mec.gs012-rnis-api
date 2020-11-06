@@ -22,13 +22,13 @@ message CellChangeNotification {
   // 0 to N identifiers to associate the event for a specific UE or flow.
   repeated AssociateId associateId = 1;
 
-  // Indicate the status of the UE handover procedure. Values are defined as following: 1 = IN_PREPARATION. 2 = IN_EXECUTION. 3 = COMPLETED. 4 = REJECTED. 5 = CANCELLED.
+  // Indicate the status of the UE handover procedure. Values are defined as following: <p>1 = IN_PREPARATION. <p>2 = IN_EXECUTION. <p>3 = COMPLETED. <p>4 = REJECTED. <p>5 = CANCELLED.
   enum HoStatusEnum {
-    _1_IN_PREPARATION = 0;
-    _2_IN_EXECUTION = 1;
-    _3_COMPLETED = 2;
-    _4_REJECTED = 3;
-    _5_CANCELLED = 4;
+    _1 = 0;
+    _2 = 1;
+    _3 = 2;
+    _4 = 3;
+    _5 = 4;
   }
 
   HoStatusEnum hoStatus = 2;
@@ -36,12 +36,10 @@ message CellChangeNotification {
   // Shall be set to \"CellChangeNotification\".
   string notificationType = 3;
 
-  // E-UTRAN Cell Global Identifier of the source cell.
   Ecgi srcEcgi = 4;
 
   CellChangeNotificationTempUeId tempUeId = 5;
 
-  // Time stamp.
   TimeStamp timeStamp = 6;
 
   // E-UTRAN Cell Global Identifier of the target cell. NOTE: Cardinality N is valid only in case of statuses IN_PREPARATION, REJECTED and CANCELLED.

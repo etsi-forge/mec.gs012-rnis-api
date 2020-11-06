@@ -22,7 +22,6 @@ message RabModNotification {
   // 0 to N identifiers to bind the event for a specific UE or flow. 
   repeated AssociateId associateId = 1;
 
-  // E-UTRAN Cell Global Identifier.
   Ecgi ecgi = 2;
 
   // The attribute that uniquely identifies a Radio Access bearer for specific UE as defined in ETSI TS 136 413 [i.3].
@@ -33,7 +32,6 @@ message RabModNotification {
   // Shall be set to \"RabModNotification\".
   string notificationType = 5;
 
-  // Time stamp.
   TimeStamp timeStamp = 6;
 
 }

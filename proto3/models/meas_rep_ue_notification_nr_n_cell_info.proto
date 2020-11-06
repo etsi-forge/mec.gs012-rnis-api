@@ -16,7 +16,7 @@ import public "models/plmn.proto";
 
 message MeasRepUeNotificationNrNCellInfo {
 
-  // Cell Global Identifier, as defined in ETSI TS 138 331 [i.13].
+  // String representing the NR Cell Identity. Encoded as a bit string (size (36)) as defined in ETSI TS 138 423 [i.17].
   string nrNCellGId = 1;
 
   // Public land mobile network identities.

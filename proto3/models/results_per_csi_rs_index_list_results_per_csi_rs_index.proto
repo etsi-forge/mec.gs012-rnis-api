@@ -12,11 +12,12 @@ syntax = "proto3";
 
 package mec012;
 
-import public "models/link_type.proto";
+import public "models/meas_quantity_results_nr.proto";
 
-message NrMeasRepUeSubscriptionLinks {
+message ResultsPerCsiRsIndexListResultsPerCsiRsIndex {
 
-  // Self-referring URI. The URI shall be unique within the RNI API as it acts as an ID for the subscription.
-  LinkType self = 1;
+  int32 csiRsIndex = 1;
+
+  MeasQuantityResultsNr csiRsResults = 2;
 
 }

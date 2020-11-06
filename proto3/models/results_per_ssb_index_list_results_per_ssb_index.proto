@@ -12,13 +12,12 @@ syntax = "proto3";
 
 package mec012;
 
-import public "models/rab_info_erab_qos_parameters_qos_information.proto";
+import public "models/meas_quantity_results_nr.proto";
 
-message RabInfoErabQosParameters {
+message ResultsPerSsbIndexListResultsPerSsbIndex {
 
-  // QoS Class Identifier as defined in ETSI TS 123 401 [i.4].
-  int32 qci = 1;
+  int32 ssbIndex = 1;
 
-  RabInfoErabQosParametersQosInformation qosInformation = 2;
+  MeasQuantityResultsNr ssbResults = 2;
 
 }

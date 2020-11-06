@@ -20,7 +20,6 @@ message NrMeasRepUeNotificationServCellMeasInfo {
 
   NrMeasRepUeNotificationNCell nCell = 1;
 
-  // NR Cell Global Identifier.
   NRcgi nrcgi = 2;
 
   NrMeasRepUeNotificationSCell sCell = 3;

@@ -20,10 +20,9 @@ message CellChangeSubscription {
 
   CaReconfSubscriptionLinks Underscorelinks = 1;
 
-  // URI selected by the service consumer to receive notifications on the subscribed RNIS information. This shall be included both in the request and in response.
+  // URI selected by the service consumerto receive notifications on the subscribed RNIS information. This shall be included both in the request and in response.
   string callbackReference = 2;
 
-  // Time stamp.
   TimeStamp expiryDeadline = 3;
 
   CellChangeSubscriptionFilterCriteriaAssocHo filterCriteriaAssocHo = 4;

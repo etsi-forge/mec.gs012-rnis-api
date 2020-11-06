@@ -25,10 +25,9 @@ message S1BearerSubscription {
   // URI selected by the service consumer, to receive notifications on the subscribed RNIS information. This shall be included in the request and response.
   string callbackReference = 3;
 
-  // Description of the subscribed event. The event is included both in the request and in the response. \\nFor the eventType, the following values are currently defined: 0 = RESERVED. 1 = S1_BEARER_ESTABLISH. 2 = S1_BEARER_MODIFY. 3 = S1_BEARER_RELEASE.
+  // Description of the subscribed event. The event is included both in the request and in the response. \\nFor the eventType, the following values are currently defined: <p>0 = RESERVED. <p>1 = S1_BEARER_ESTABLISH. <p>2 = S1_BEARER_MODIFY. <p>3 = S1_BEARER_RELEASE.
   repeated int32 eventType = 4;
 
-  // Time stamp.
   TimeStamp expiryDeadline = 5;
 
   // Shall be set to \"S1BearerSubscription\".

@@ -24,7 +24,6 @@ message L2Meas {
   // The per cell per UE layer 2 measurements information as defined below.
   repeated L2MeasCellUEInfo cellUEInfo = 2;
 
-  // Time stamp.
   TimeStamp timeStamp = 3;
 
 }

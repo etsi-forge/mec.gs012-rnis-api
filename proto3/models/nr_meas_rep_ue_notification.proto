@@ -36,10 +36,8 @@ message NrMeasRepUeNotification {
   // This parameter can be repeated to contain information of all the serving cells up to N.
   repeated NrMeasRepUeNotificationServCellMeasInfo servCellMeasInfo = 5;
 
-  // Time stamp.
   TimeStamp timeStamp = 6;
 
-  // Corresponds to a specific 5G UE Measurement Report trigger.
   TriggerNr triggerNr = 7;
 
 }

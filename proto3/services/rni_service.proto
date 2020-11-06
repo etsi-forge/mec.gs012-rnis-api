@@ -26,7 +26,7 @@ import public "models/inline_response201.proto";
 import public "models/inline_response400.proto";
 import public "models/inline_response403.proto";
 
-service DefaultService {
+service RniService {
   rpc Layer2MeasInfoGET (Layer2MeasInfoGETRequest) returns (InlineResponse2003);
 
   rpc PlmnInfoGET (PlmnInfoGETRequest) returns (InlineResponse2001);
@@ -182,7 +182,7 @@ message S1BearerInfoGETRequest {
 }
 
 message SubscriptionLinkListSubscriptionsGETRequest {
-  // Subscription type filter
+  // Filter on a specific subscription type. Permitted values: cell_change, rab_est, rab_mod, rab_rel, meas_rep_ue, nr_meas_rep_ue, timing_advance_ue, ca_reconf, s1_bearer.
   string subscriptionType = 1;
 
 }

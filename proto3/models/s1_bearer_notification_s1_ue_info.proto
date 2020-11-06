@@ -15,7 +15,7 @@ package mec012;
 import public "models/associate_id.proto";
 import public "models/cell_change_notification_temp_ue_id.proto";
 import public "models/ecgi.proto";
-import public "models/s1_bearer_notification_s1_bearer_info.proto";
+import public "models/s1_bearer_info_s1_bearer_info_detailed.proto";
 
 message S1BearerNotificationS1UeInfo {
 
@@ -26,7 +26,7 @@ message S1BearerNotificationS1UeInfo {
   repeated Ecgi ecgi = 2;
 
   // S1 bearer information as defined below.
-  repeated S1BearerNotificationS1BearerInfo s1BearerInfo = 3;
+  repeated S1BearerInfoS1BearerInfoDetailed s1BearerInfo = 3;
 
   CellChangeNotificationTempUeId tempUeId = 4;
 

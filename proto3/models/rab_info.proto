@@ -26,7 +26,6 @@ message RabInfo {
   // Unique identifier allocated by the service consumer for the RAB Information request.
   string requestId = 3;
 
-  // Time stamp.
   TimeStamp timeStamp = 4;
 
 }

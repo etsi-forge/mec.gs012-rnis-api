@@ -23,7 +23,6 @@ message RabModSubscription {
   // URI selected by the service consumer to receive notifications on the subscribed RNIS information. This shall be included both in the request and in response.
   string callbackReference = 2;
 
-  // Time stamp.
   TimeStamp expiryDeadline = 3;
 
   RabModSubscriptionFilterCriteriaQci filterCriteriaQci = 4;

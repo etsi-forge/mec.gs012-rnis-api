@@ -16,7 +16,6 @@ import public "models/link_type.proto";
 
 message CaReconfSubscriptionLinks {
 
-  // Self referring URI. The URI shall be unique within the RNI API as it acts as an ID for the subscription.
   LinkType self = 1;
 
 }

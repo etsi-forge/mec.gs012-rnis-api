@@ -29,7 +29,6 @@ message MeasRepUeNotificationNewRadioMeasNeiInfo {
   // Reference signal SINR measurement according to mapping table in ETSI TS 138.133 [i.14].
   int32 nrNCellRssi = 4;
 
-  // Beam level measurements results of a NR cell.
   RsIndexResults rsIndexResults = 5;
 
 }

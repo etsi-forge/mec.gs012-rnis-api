@@ -15,10 +15,10 @@ package mec012;
 
 message CaReconfNotificationCarrierAggregationMeasInfo {
 
-  // E-UTRAN Cell Identity of the best neighbouring cell associated with the Carrier Aggregation serving cell.
+  // String representing the E-UTRAN Cell Identity. Encoded as a bit string (size (28)) as defined in ETSI TS 136 413 [i.3].
   string cellIdNei = 1;
 
-  // E-UTRAN Cell Identity of a Carrier Aggregation serving cell.
+  // String representing the E-UTRAN Cell Identity. Encoded as a bit string (size (28)) as defined in ETSI TS 136 413 [i.3].
   string cellIdSrv = 2;
 
   // Reference Signal Received Power as defined in ETSI TS 136 214 [i.5].

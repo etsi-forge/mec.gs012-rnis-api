@@ -26,7 +26,6 @@ message CaReconfNotification {
   // This parameter can be repeated to contain information of all the carriers assign for Carrier Aggregation up to M.
   repeated CaReconfNotificationCarrierAggregationMeasInfo carrierAggregationMeasInfo = 2;
 
-  // E-UTRAN Cell Global Identifier.
   Ecgi ecgi = 3;
 
   // Shall be set to \"CaReConfNotification\".
@@ -36,7 +35,6 @@ message CaReconfNotification {
 
   repeated CaReconfNotificationSecondaryCellAdd secondaryCellRemove = 6;
 
-  // Time stamp.
   TimeStamp timeStamp = 7;
 
 }

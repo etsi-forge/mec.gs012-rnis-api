@@ -16,7 +16,6 @@ import public "models/ecgi.proto";
 
 message CaReconfNotificationSecondaryCellAdd {
 
-  // E-UTRAN Cell Global Identifier.
   Ecgi ecgi = 1;
 
 }

@@ -17,13 +17,10 @@ import public "models/rs_index_results.proto";
 
 message NrMeasRepUeNotificationSCell {
 
-  // Measurement quantity results relating to the Channel State Information Reference Signal.
   MeasQuantityResultsNr measQuantityResultsCsiRsCell = 1;
 
-  // Measurement quantity results relating to the Synchronization Signal Block.
   MeasQuantityResultsNr measQuantityResultsSsbCell = 2;
 
-  // Beam level measurement information
   RsIndexResults rsIndexResults = 3;
 
 }

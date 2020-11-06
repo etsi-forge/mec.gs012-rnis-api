@@ -16,7 +16,6 @@ import public "models/ecgi.proto";
 
 message MeasRepUeNotificationEutranNeighbourCellMeasInfo {
 
-  // E-UTRAN Cell Global Identifier.
   Ecgi ecgi = 1;
 
   // Reference Signal Received Power as defined in ETSI TS 136 214 [i.5].

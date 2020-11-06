@@ -12,18 +12,17 @@ syntax = "proto3";
 
 package mec012;
 
+import public "models/ca_reconf_subscription_links.proto";
 import public "models/nr_meas_rep_ue_subscription_filter_criteria_nr_mrs.proto";
-import public "models/nr_meas_rep_ue_subscription_links.proto";
 import public "models/time_stamp.proto";
 
 message NrMeasRepUeSubscription {
 
-  NrMeasRepUeSubscriptionLinks Underscorelinks = 1;
+  CaReconfSubscriptionLinks Underscorelinks = 1;
 
   // URI selected by the service consumer to receive notifications on the subscribed RNIS information. This shall be included both in the request and in response.
   string callbackReference = 2;
 
-  // Time stamp.
   TimeStamp expiryDeadline = 3;
 
   NrMeasRepUeSubscriptionFilterCriteriaNrMrs filterCriteriaNrMrs = 4;

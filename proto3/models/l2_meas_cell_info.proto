@@ -31,7 +31,6 @@ message L2MeasCellInfo {
   // It indicates (in percentage) the PRB usage for total downlink traffic, as defined in ETSI TS 136 314 [i.11] and ETSI TS 136 423 [i.12].
   int32 dlUnderscoretotalUnderscoreprbUnderscoreusageUnderscorecell = 5;
 
-  // E-UTRAN Cell Global Identifier.
   Ecgi ecgi = 6;
 
   // It indicates the number of active UEs with downlink GBR traffic, as defined in ETSI TS 136 314 [i.11].

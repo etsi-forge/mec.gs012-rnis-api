@@ -16,10 +16,9 @@ import public "models/plmn.proto";
 
 message Ecgi {
 
-  // E-UTRAN Cell Global Identifier.
+  // String representing the E-UTRAN Cell Identity. Encoded as a bit string (size (28)) as defined in ETSI TS 136 413 [i.3].
   string cellId = 1;
 
-  // Public Land Mobile Network Identity.
   Plmn plmn = 2;
 
 }
