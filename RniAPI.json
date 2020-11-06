@@ -4476,125 +4476,122 @@
           },
           "s1UeInfo": {
             "description": "Information on specific UE that matches the criteria in S1BearerSubscription as defined below.",
-            "items": {
-              "properties": {
-                "associateId": {
-                  "description": "0 to N identifiers to associate the information for a specific UE or flow.",
-                  "items": {
-                    "$ref": "#/components/schemas/AssociateId"
-                  },
-                  "minItems": 0,
-                  "type": "array",
-                  "x-etsi-mec-cardinality": "0..N",
-                  "x-etsi-mec-origin-type": "AssociateId"
+            "properties": {
+              "associateId": {
+                "description": "0 to N identifiers to associate the information for a specific UE or flow.",
+                "items": {
+                  "$ref": "#/components/schemas/AssociateId"
                 },
-                "ecgi": {
-                  "description": "E-UTRAN Cell Global Identifier.",
-                  "items": {
-                    "$ref": "#/components/schemas/Ecgi"
-                  },
-                  "minItems": 1,
-                  "type": "array",
-                  "x-etsi-mec-cardinality": "1..N",
-                  "x-etsi-mec-origin-type": "Ecgi"
-                },
-                "s1BearerInfo": {
-                  "description": "S1 bearer information as defined below.",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "enbInfo": {
-                        "description": "S1 bearer information on eNB side as defined below.",
-                        "properties": {
-                          "ipAddress": {
-                            "description": "eNB transport layer address of this S1 bearer.",
-                            "type": "string",
-                            "x-etsi-mec-cardinality": "1",
-                            "x-etsi-mec-origin-type": "String"
-                          },
-                          "tunnelId": {
-                            "description": "eNB GTP-U TEID of this S1 bearer.",
-                            "type": "string",
-                            "x-etsi-mec-cardinality": "1",
-                            "x-etsi-mec-origin-type": "String"
-                          }
-                        },
-                        "required": [
-                          "ipAddress",
-                          "tunnelId"
-                        ],
-                        "type": "object",
-                        "x-etsi-mec-cardinality": "1",
-                        "x-etsi-mec-origin-type": "Structure (inlined)"
-                      },
-                      "erabId": {
-                        "description": "The attribute that uniquely identifies a S1 bearer for a specific UE, as defined in ETSI TS 136 413 [i.3].",
-                        "type": "integer",
-                        "x-etsi-mec-cardinality": "1",
-                        "x-etsi-mec-origin-type": "Integer"
-                      },
-                      "sGwInfo": {
-                        "description": "S1 bearer information on GW side as defined below.",
-                        "properties": {
-                          "ipAddress": {
-                            "description": "SGW transport layer address of this S1 bearer.",
-                            "type": "string",
-                            "x-etsi-mec-cardinality": "1",
-                            "x-etsi-mec-origin-type": "String"
-                          },
-                          "tunnelId": {
-                            "description": "SGW GTP-U TEID of this S1 bearer.",
-                            "type": "string",
-                            "x-etsi-mec-cardinality": "1",
-                            "x-etsi-mec-origin-type": "String"
-                          }
-                        },
-                        "required": [
-                          "ipAddress",
-                          "tunnelId"
-                        ],
-                        "type": "object",
-                        "x-etsi-mec-cardinality": "1",
-                        "x-etsi-mec-origin-type": "Structure (inlined)"
-                      }
-                    }
-                  },
-                  "minItems": 1,
-                  "required": [
-                    "erabId",
-                    "enbInfo",
-                    "sGwInfo"
-                  ],
-                  "type": "array",
-                  "x-etsi-mec-cardinality": "1..N",
-                  "x-etsi-mec-origin-type": "Structure (inlined)"
-                },
-                "tempUeId": {
-                  "description": "The temporary identifier allocated for the specific UE as defined below.",
-                  "properties": {
-                    "mmec": {
-                      "description": "MMEC as defined in ETSI TS 136 413 [i.3].",
-                      "type": "string",
-                      "x-etsi-mec-cardinality": "1",
-                      "x-etsi-mec-origin-type": "String"
-                    },
-                    "mtmsi": {
-                      "description": "M-TMSI as defined in ETSI TS 136 413 [i.3].",
-                      "type": "string",
-                      "x-etsi-mec-cardinality": "1",
-                      "x-etsi-mec-origin-type": "String"
-                    }
-                  },
-                  "required": [
-                    "mmec",
-                    "mtmsi"
-                  ],
-                  "type": "object",
-                  "x-etsi-mec-cardinality": "0..1",
-                  "x-etsi-mec-origin-type": "Structure (inlined)"
-                }
+                "minItems": 0,
+                "type": "array",
+                "x-etsi-mec-cardinality": "0..N",
+                "x-etsi-mec-origin-type": "AssociateId"
               },
-              "type": "object"
+              "ecgi": {
+                "description": "E-UTRAN Cell Global Identifier.",
+                "items": {
+                  "$ref": "#/components/schemas/Ecgi"
+                },
+                "minItems": 1,
+                "type": "array",
+                "x-etsi-mec-cardinality": "1..N",
+                "x-etsi-mec-origin-type": "Ecgi"
+              },
+              "s1BearerInfo": {
+                "description": "S1 bearer information as defined below.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "enbInfo": {
+                      "description": "S1 bearer information on eNB side as defined below.",
+                      "properties": {
+                        "ipAddress": {
+                          "description": "eNB transport layer address of this S1 bearer.",
+                          "type": "string",
+                          "x-etsi-mec-cardinality": "1",
+                          "x-etsi-mec-origin-type": "String"
+                        },
+                        "tunnelId": {
+                          "description": "eNB GTP-U TEID of this S1 bearer.",
+                          "type": "string",
+                          "x-etsi-mec-cardinality": "1",
+                          "x-etsi-mec-origin-type": "String"
+                        }
+                      },
+                      "required": [
+                        "ipAddress",
+                        "tunnelId"
+                      ],
+                      "type": "object",
+                      "x-etsi-mec-cardinality": "1",
+                      "x-etsi-mec-origin-type": "Structure (inlined)"
+                    },
+                    "erabId": {
+                      "description": "The attribute that uniquely identifies a S1 bearer for a specific UE, as defined in ETSI TS 136 413 [i.3].",
+                      "type": "integer",
+                      "x-etsi-mec-cardinality": "1",
+                      "x-etsi-mec-origin-type": "Integer"
+                    },
+                    "sGwInfo": {
+                      "description": "S1 bearer information on GW side as defined below.",
+                      "properties": {
+                        "ipAddress": {
+                          "description": "SGW transport layer address of this S1 bearer.",
+                          "type": "string",
+                          "x-etsi-mec-cardinality": "1",
+                          "x-etsi-mec-origin-type": "String"
+                        },
+                        "tunnelId": {
+                          "description": "SGW GTP-U TEID of this S1 bearer.",
+                          "type": "string",
+                          "x-etsi-mec-cardinality": "1",
+                          "x-etsi-mec-origin-type": "String"
+                        }
+                      },
+                      "required": [
+                        "ipAddress",
+                        "tunnelId"
+                      ],
+                      "type": "object",
+                      "x-etsi-mec-cardinality": "1",
+                      "x-etsi-mec-origin-type": "Structure (inlined)"
+                    }
+                  }
+                },
+                "minItems": 1,
+                "required": [
+                  "erabId",
+                  "enbInfo",
+                  "sGwInfo"
+                ],
+                "type": "array",
+                "x-etsi-mec-cardinality": "1..N",
+                "x-etsi-mec-origin-type": "Structure (inlined)"
+              },
+              "tempUeId": {
+                "description": "The temporary identifier allocated for the specific UE as defined below.",
+                "properties": {
+                  "mmec": {
+                    "description": "MMEC as defined in ETSI TS 136 413 [i.3].",
+                    "type": "string",
+                    "x-etsi-mec-cardinality": "1",
+                    "x-etsi-mec-origin-type": "String"
+                  },
+                  "mtmsi": {
+                    "description": "M-TMSI as defined in ETSI TS 136 413 [i.3].",
+                    "type": "string",
+                    "x-etsi-mec-cardinality": "1",
+                    "x-etsi-mec-origin-type": "String"
+                  }
+                },
+                "required": [
+                  "mmec",
+                  "mtmsi"
+                ],
+                "type": "object",
+                "x-etsi-mec-cardinality": "0..1",
+                "x-etsi-mec-origin-type": "Structure (inlined)"
+              }
             },
             "required": [
               "ecgi",

@@ -23,8 +23,7 @@ message S1BearerNotification {
   // The subscribed event that triggered this notification in S1BearerSubscription.
   int32 s1Event = 2;
 
-  // Information on specific UE that matches the criteria in S1BearerSubscription as defined below.
-  repeated S1BearerNotificationS1UeInfo s1UeInfo = 3;
+  S1BearerNotificationS1UeInfo s1UeInfo = 3;
 
   TimeStamp timeStamp = 4;
 
