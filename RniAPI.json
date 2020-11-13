@@ -79,12 +79,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "rabInfo": {
-                      "$ref": "#/components/schemas/RabInfo"
-                    }
-                  }
+                  "$ref": "#/components/schemas/RabInfo"
                 }
               }
             }
@@ -130,14 +125,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "plmnInfo": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/PlmnInfo"
-                      }
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlmnInfo"
                   }
                 }
               }
@@ -202,15 +192,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "required": [
-                    "s1BearerInfo"
-                  ],
-                  "properties": {
-                    "s1BearerInfo": {
-                      "$ref": "#/components/schemas/S1BearerInfo"
-                    }
-                  }
+                  "$ref": "#/components/schemas/S1BearerInfo"
                 }
               }
             }
@@ -370,15 +352,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "required": [
-                    "l2Meas"
-                  ],
-                  "properties": {
-                    "l2Meas": {
-                      "$ref": "#/components/schemas/L2Meas"
-                    }
-                  }
+                  "$ref": "#/components/schemas/L2Meas"
                 }
               }
             }
@@ -427,35 +401,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "required": [
-                    "subscriptionLinkList"
-                  ],
-                  "properties": {
-                    "subscriptionLinkList": {
-                      "$ref": "#/components/schemas/SubscriptionLinkList"
-                    }
-                  }
+                  "$ref": "#/components/schemas/SubscriptionLinkList"
                 },
                 "example": {
-                  "subscriptionLinkList": {
-                    "_links": {
-                      "self": {
-                        "href": "http://meAppServer.example.com/rni/v2/subscriptions"
-                      }
-                    },
-                    "subscription": [
-                      {
-                        "_links": {
-                          "self": {
-                            "href": "http://meAppServer.example.com/rni/v2/subscriptions/sub123"
-                          }
-                        },
-                        "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
-                        "subscriptionType": "CellChangeSubscription"
-                      }
-                    ]
-                  }
+                  "_links": {
+                    "self": {
+                      "href": "http://meAppServer.example.com/rni/v2/subscriptions"
+                    }
+                  },
+                  "subscription": [
+                    {
+                      "_links": {
+                        "self": {
+                          "href": "http://meAppServer.example.com/rni/v2/subscriptions/sub123"
+                        }
+                      },
+                      "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
+                      "subscriptionType": "CellChangeSubscription"
+                    }
+                  ]
                 }
               }
             }
@@ -494,74 +458,36 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "notificationSubscription": {
-                    "oneOf": [
-                      {
-                        "$ref": "#/components/schemas/CellChangeSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/RabEstSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/RabModSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/RabRelSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/MeasRepUeSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/NrMeasRepUeSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/MeasTaSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/CaReconfSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/S1BearerSubscription"
-                      }
-                    ],
-                    "discriminator": {
-                      "propertyName": "subscriptionType"
+                "$ref": "#/components/schemas/InlineSubscription"
+              },
+              "example": {
+                "subscriptionType": "CellChangeSubscription",
+                "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
+                "filterCriteriaAssocHo": {
+                  "appInstanceId": "myApp",
+                  "associateId": [
+                    {
+                      "type": 1,
+                      "value": "10.100.0.1"
                     }
-                  }
+                  ],
+                  "ecgi": [
+                    {
+                      "plmn": {
+                        "mnc": "01",
+                        "mcc": "001"
+                      },
+                      "cellId": "ACBDEFA"
+                    }
+                  ],
+                  "hoStatus": [
+                    1,
+                    2
+                  ]
                 },
-                "example": {
-                  "notificationSubscription": {
-                    "subscriptionType": "CellChangeSubscription",
-                    "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
-                    "filterCriteriaAssocHo": {
-                      "appInstanceId": "myApp",
-                      "associateId": [
-                        {
-                          "type": 1,
-                          "value": "10.100.0.1"
-                        }
-                      ],
-                      "ecgi": [
-                        {
-                          "plmn": {
-                            "mnc": "01",
-                            "mcc": "001"
-                          },
-                          "cellId": "ACBDEFA"
-                        }
-                      ],
-                      "hoStatus": [
-                        1,
-                        2
-                      ]
-                    },
-                    "expiryDeadline": {
-                      "seconds": 1977836800,
-                      "nanoseconds": 0
-                    }
-                  }
+                "expiryDeadline": {
+                  "seconds": 1977836800,
+                  "nanoseconds": 0
                 }
               }
             }
@@ -573,79 +499,41 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "notificationSubscription": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/components/schemas/CellChangeSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/RabEstSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/RabModSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/RabRelSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/MeasRepUeSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/NrMeasRepUeSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/MeasTaSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/CaReconfSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/S1BearerSubscription"
-                        }
-                      ],
-                      "discriminator": {
-                        "propertyName": "subscriptionType"
-                      }
+                  "$ref": "#/components/schemas/InlineSubscription"
+                },
+                "example": {
+                  "subscriptionType": "CellChangeSubscription",
+                  "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
+                  "_links": {
+                    "self": {
+                      "href": "http://meAppServer.example.com/rni/v2/subscriptions/sub123"
                     }
                   },
-                  "example": {
-                    "notificationSubscription": {
-                      "subscriptionType": "CellChangeSubscription",
-                      "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
-                      "_links": {
-                        "self": {
-                          "href": "http://meAppServer.example.com/rni/v2/subscriptions/sub123"
-                        }
-                      },
-                      "filterCriteriaAssocHo": {
-                        "appInstanceId": "myApp",
-                        "associateId": [
-                          {
-                            "type": 1,
-                            "value": "10.100.0.1"
-                          }
-                        ],
-                        "ecgi": [
-                          {
-                            "plmn": {
-                              "mnc": "01",
-                              "mcc": "001"
-                            },
-                            "cellId": "ACBDEFA"
-                          }
-                        ],
-                        "hoStatus": [
-                          1,
-                          2
-                        ]
-                      },
-                      "expiryDeadline": {
-                        "seconds": 1977836800,
-                        "nanoseconds": 0
+                  "filterCriteriaAssocHo": {
+                    "appInstanceId": "myApp",
+                    "associateId": [
+                      {
+                        "type": 1,
+                        "value": "10.100.0.1"
                       }
-                    }
+                    ],
+                    "ecgi": [
+                      {
+                        "plmn": {
+                          "mnc": "01",
+                          "mcc": "001"
+                        },
+                        "cellId": "ACBDEFA"
+                      }
+                    ],
+                    "hoStatus": [
+                      1,
+                      2
+                    ]
+                  },
+                  "expiryDeadline": {
+                    "seconds": 1977836800,
+                    "nanoseconds": 0
                   }
                 }
               }
@@ -689,76 +577,38 @@
                   "content": {
                     "application/json": {
                       "schema": {
-                        "type": "object",
-                        "properties": {
-                          "notification": {
-                            "oneOf": [
-                              {
-                                "$ref": "#/components/schemas/CellChangeNotification"
-                              },
-                              {
-                                "$ref": "#/components/schemas/RabEstNotification"
-                              },
-                              {
-                                "$ref": "#/components/schemas/RabModNotification"
-                              },
-                              {
-                                "$ref": "#/components/schemas/RabRelNotification"
-                              },
-                              {
-                                "$ref": "#/components/schemas/MeasRepUeNotification"
-                              },
-                              {
-                                "$ref": "#/components/schemas/NrMeasRepUeNotification"
-                              },
-                              {
-                                "$ref": "#/components/schemas/MeasTaNotification"
-                              },
-                              {
-                                "$ref": "#/components/schemas/CaReconfNotification"
-                              },
-                              {
-                                "$ref": "#/components/schemas/S1BearerNotification"
-                              }
-                            ],
-                            "discriminator": {
-                              "propertyName": "notificationType"
-                            }
+                        "$ref": "#/components/schemas/InlineNotification"
+                      },
+                      "example": {
+                        "notificationType": "CellChangeNotification",
+                        "associateId": [
+                          {
+                            "type": 1,
+                            "value": "10.100.0.1"
                           }
+                        ],
+                        "hoStatus": 1,
+                        "srcEcgi": {
+                          "plmn": {
+                            "mnc": "01",
+                            "mcc": "001"
+                          },
+                          "cellId": "ACBDEFA"
                         },
-                        "example": {
-                          "notification": {
-                            "notificationType": "CellChangeNotification",
-                            "associateId": [
-                              {
-                                "type": 1,
-                                "value": "10.100.0.1"
-                              }
-                            ],
-                            "hoStatus": 1,
-                            "srcEcgi": {
-                              "plmn": {
-                                "mnc": "01",
-                                "mcc": "001"
-                              },
-                              "cellId": "ACBDEFA"
-                            },
-                            "tempUeId": {
-                              "mmec": 1,
-                              "mtmsi": 69967622812
-                            },
-                            "timeStamp": {
-                              "seconds": 1977836800,
-                              "nanoseconds": 0
-                            },
-                            "trgEcgi": {
-                              "plmn": {
-                                "mnc": "01",
-                                "mcc": "001"
-                              },
-                              "cellId": "FEDCBAA"
-                            }
-                          }
+                        "tempUeId": {
+                          "mmec": 1,
+                          "mtmsi": 69967622812
+                        },
+                        "timeStamp": {
+                          "seconds": 1977836800,
+                          "nanoseconds": 0
+                        },
+                        "trgEcgi": {
+                          "plmn": {
+                            "mnc": "01",
+                            "mcc": "001"
+                          },
+                          "cellId": "FEDCBAA"
                         }
                       }
                     }
@@ -795,82 +645,41 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "required": [
-                    "notificationSubscription"
-                  ],
-                  "properties": {
-                    "notificationSubscription": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/components/schemas/CellChangeSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/RabEstSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/RabModSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/RabRelSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/MeasRepUeSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/NrMeasRepUeSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/MeasTaSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/CaReconfSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/S1BearerSubscription"
-                        }
-                      ],
-                      "discriminator": {
-                        "propertyName": "subscriptionType"
-                      }
+                  "$ref": "#/components/schemas/InlineSubscription"
+                },
+                "example": {
+                  "subscriptionType": "CellChangeSubscription",
+                  "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
+                  "_links": {
+                    "self": {
+                      "href": "http://meAppServer.example.com/rni/v2/subscriptions/sub123"
                     }
                   },
-                  "example": {
-                    "notificationSubscription": {
-                      "subscriptionType": "CellChangeSubscription",
-                      "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
-                      "_links": {
-                        "self": {
-                          "href": "http://meAppServer.example.com/rni/v2/subscriptions/sub123"
-                        }
-                      },
-                      "filterCriteriaAssocHo": {
-                        "appInstanceId": "myApp",
-                        "associateId": [
-                          {
-                            "type": 1,
-                            "value": "10.100.0.1"
-                          }
-                        ],
-                        "ecgi": [
-                          {
-                            "plmn": {
-                              "mnc": "01",
-                              "mcc": "001"
-                            },
-                            "cellId": "ACBDEFA"
-                          }
-                        ],
-                        "hoStatus": [
-                          1,
-                          2
-                        ]
-                      },
-                      "expiryDeadline": {
-                        "seconds": 1977836800,
-                        "nanoseconds": 0
+                  "filterCriteriaAssocHo": {
+                    "appInstanceId": "myApp",
+                    "associateId": [
+                      {
+                        "type": 1,
+                        "value": "10.100.0.1"
                       }
-                    }
+                    ],
+                    "ecgi": [
+                      {
+                        "plmn": {
+                          "mnc": "01",
+                          "mcc": "001"
+                        },
+                        "cellId": "ACBDEFA"
+                      }
+                    ],
+                    "hoStatus": [
+                      1,
+                      2
+                    ]
+                  },
+                  "expiryDeadline": {
+                    "seconds": 1977836800,
+                    "nanoseconds": 0
                   }
                 }
               }
@@ -910,79 +719,41 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "notificationSubscription": {
-                    "oneOf": [
-                      {
-                        "$ref": "#/components/schemas/CellChangeSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/RabEstSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/RabModSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/RabRelSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/MeasRepUeSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/NrMeasRepUeSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/MeasTaSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/CaReconfSubscription"
-                      },
-                      {
-                        "$ref": "#/components/schemas/S1BearerSubscription"
-                      }
-                    ],
-                    "discriminator": {
-                      "propertyName": "subscriptionType"
-                    }
+                "$ref": "#/components/schemas/InlineSubscription"
+              },
+              "example": {
+                "subscriptionType": "CellChangeSubscription",
+                "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
+                "_links": {
+                  "self": {
+                    "href": "http://meAppServer.example.com/rni/v2/subscriptions/sub123"
                   }
                 },
-                "example": {
-                  "notificationSubscription": {
-                    "subscriptionType": "CellChangeSubscription",
-                    "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
-                    "_links": {
-                      "self": {
-                        "href": "http://meAppServer.example.com/rni/v2/subscriptions/sub123"
-                      }
-                    },
-                    "filterCriteriaAssocHo": {
-                      "appInstanceId": "myApp",
-                      "associateId": [
-                        {
-                          "type": 1,
-                          "value": "10.100.0.1"
-                        }
-                      ],
-                      "ecgi": [
-                        {
-                          "plmn": {
-                            "mnc": "01",
-                            "mcc": "001"
-                          },
-                          "cellId": "ACBDEFA"
-                        }
-                      ],
-                      "hoStatus": [
-                        1,
-                        2
-                      ]
-                    },
-                    "expiryDeadline": {
-                      "seconds": 1977836800,
-                      "nanoseconds": 0
+                "filterCriteriaAssocHo": {
+                  "appInstanceId": "myApp",
+                  "associateId": [
+                    {
+                      "type": 1,
+                      "value": "10.100.0.1"
                     }
-                  }
+                  ],
+                  "ecgi": [
+                    {
+                      "plmn": {
+                        "mnc": "01",
+                        "mcc": "001"
+                      },
+                      "cellId": "ACBDEFA"
+                    }
+                  ],
+                  "hoStatus": [
+                    1,
+                    2
+                  ]
+                },
+                "expiryDeadline": {
+                  "seconds": 1977836800,
+                  "nanoseconds": 0
                 }
               }
             }
@@ -999,79 +770,41 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "notificationSubscription": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/components/schemas/CellChangeSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/RabEstSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/RabModSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/RabRelSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/MeasRepUeSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/NrMeasRepUeSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/MeasTaSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/CaReconfSubscription"
-                        },
-                        {
-                          "$ref": "#/components/schemas/S1BearerSubscription"
-                        }
-                      ],
-                      "discriminator": {
-                        "propertyName": "subscriptionType"
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/InlineSubscription"
                 },
                 "example": {
-                  "notificationSubscription": {
-                    "subscriptionType": "CellChangeSubscription",
-                    "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
-                    "_links": {
-                      "self": {
-                        "href": "http://meAppServer.example.com/rni/v2/subscriptions/sub123"
-                      }
-                    },
-                    "filterCriteriaAssocHo": {
-                      "appInstanceId": "myApp",
-                      "associateId": [
-                        {
-                          "type": 1,
-                          "value": "10.100.0.1"
-                        }
-                      ],
-                      "ecgi": [
-                        {
-                          "plmn": {
-                            "mnc": "01",
-                            "mcc": "001"
-                          },
-                          "cellId": "ACBDEFA"
-                        }
-                      ],
-                      "hoStatus": [
-                        1,
-                        2
-                      ]
-                    },
-                    "expiryDeadline": {
-                      "seconds": 1977836800,
-                      "nanoseconds": 0
+                  "subscriptionType": "CellChangeSubscription",
+                  "callbackReference": "http://my.callback.com/rni-cell-change/some-id",
+                  "_links": {
+                    "self": {
+                      "href": "http://meAppServer.example.com/rni/v2/subscriptions/sub123"
                     }
+                  },
+                  "filterCriteriaAssocHo": {
+                    "appInstanceId": "myApp",
+                    "associateId": [
+                      {
+                        "type": 1,
+                        "value": "10.100.0.1"
+                      }
+                    ],
+                    "ecgi": [
+                      {
+                        "plmn": {
+                          "mnc": "01",
+                          "mcc": "001"
+                        },
+                        "cellId": "ACBDEFA"
+                      }
+                    ],
+                    "hoStatus": [
+                      1,
+                      2
+                    ]
+                  },
+                  "expiryDeadline": {
+                    "seconds": 1977836800,
+                    "nanoseconds": 0
                   }
                 }
               }
@@ -1145,14 +878,9 @@
       "400": {
         "description": "Bad Request : used to indicate that incorrect parameters were passed to the request.",
         "content": {
-          "application/json": {
+          "application/problem+json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "problemDetails": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
+              "$ref": "#/components/schemas/ProblemDetails"
             }
           }
         }
@@ -1160,14 +888,9 @@
       "401": {
         "description": "Unauthorized :  used when the client did not submit credentials.",
         "content": {
-          "application/json": {
+          "application/problem+json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "problemDetails": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
+              "$ref": "#/components/schemas/ProblemDetails"
             }
           }
         }
@@ -1175,17 +898,9 @@
       "403": {
         "description": "Forbidden :  operation is not allowed given the current status of the resource.",
         "content": {
-          "application/json": {
+          "application/problem+json": {
             "schema": {
-              "type": "object",
-              "required": [
-                "problemDetails"
-              ],
-              "properties": {
-                "problemDetails": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
+              "$ref": "#/components/schemas/ProblemDetails"
             }
           }
         }
@@ -1193,14 +908,9 @@
       "404": {
         "description": "Not Found :  used when a client provided a URI that cannot be mapped to a valid resource URI.",
         "content": {
-          "application/json": {
+          "application/problem+json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "problemDetails": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
+              "$ref": "#/components/schemas/ProblemDetails"
             }
           }
         }
@@ -1208,14 +918,9 @@
       "406": {
         "description": "Not Acceptable : used to indicate that the server cannot provide the any of the content formats supported by the client.",
         "content": {
-          "application/json": {
+          "application/problem+json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "problemDetails": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
+              "$ref": "#/components/schemas/ProblemDetails"
             }
           }
         }
@@ -1223,14 +928,9 @@
       "412": {
         "description": "Precondition failed :  used when a condition has failed during conditional requests, e.g. when using ETags to avoid write conflicts when using PUT",
         "content": {
-          "application/json": {
+          "application/problem+json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "problemDetails": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
+              "$ref": "#/components/schemas/ProblemDetails"
             }
           }
         }
@@ -1238,14 +938,9 @@
       "414": {
         "description": "URI Too Long : used to indicate that the server is refusing to process the request because the request URI is longer than the server is willing or able to process.",
         "content": {
-          "application/json": {
+          "application/problem+json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "problemDetails": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
+              "$ref": "#/components/schemas/ProblemDetails"
             }
           }
         }
@@ -1253,14 +948,9 @@
       "415": {
         "description": "Unsupported Media Type :  used to indicate that the server or the client does not support the content type of the entity body.",
         "content": {
-          "application/json": {
+          "application/problem+json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "problemDetails": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
+              "$ref": "#/components/schemas/ProblemDetails"
             }
           }
         }
@@ -1268,24 +958,17 @@
       "422": {
         "description": "Unprocessable Entity : used to indicate that the server understands the content type of the request entity and that the syntax of the request entity is correct but that the server is unable to process the contained instructions. This error condition can occur if an JSON request body is syntactically correct but semantically incorrect, for example if the target area for the request is considered too large. This error condition can also occur if the capabilities required by the request are not supported.",
         "content": {
-          "application/json": {
+          "application/problem+json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "problemDetails": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
+              "$ref": "#/components/schemas/ProblemDetails"
             },
             "example": {
               "application/problem+json": {
-                "problemDetails": {
-                  "type": "https://meAppServer.example.com/rni/v2/probs/too-many targets",
-                  "title": "Too many targets",
-                  "status": "422",
-                  "detail": "The target area for the request is considered too large",
-                  "instance": "/meAppClient.example.com/77777/msgs/abc"
-                }
+                "type": "https://meAppServer.example.com/rni/v2/probs/too-many targets",
+                "title": "Too many targets",
+                "status": "422",
+                "detail": "The target area for the request is considered too large",
+                "instance": "/meAppClient.example.com/77777/msgs/abc"
               }
             }
           }
@@ -1294,14 +977,9 @@
       "429": {
         "description": "Too Many Requests : used when a rate limiter has triggered.",
         "content": {
-          "application/json": {
+          "application/problem+json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "problemDetails": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
+              "$ref": "#/components/schemas/ProblemDetails"
             }
           }
         }
@@ -4826,6 +4504,74 @@
           31
         ],
         "type": "integer"
+      },
+      "InlineSubscription": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CellChangeSubscription"
+          },
+          {
+            "$ref": "#/components/schemas/RabEstSubscription"
+          },
+          {
+            "$ref": "#/components/schemas/RabModSubscription"
+          },
+          {
+            "$ref": "#/components/schemas/RabRelSubscription"
+          },
+          {
+            "$ref": "#/components/schemas/MeasRepUeSubscription"
+          },
+          {
+            "$ref": "#/components/schemas/NrMeasRepUeSubscription"
+          },
+          {
+            "$ref": "#/components/schemas/MeasTaSubscription"
+          },
+          {
+            "$ref": "#/components/schemas/CaReconfSubscription"
+          },
+          {
+            "$ref": "#/components/schemas/S1BearerSubscription"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "subscriptionType"
+        }
+      },
+      "InlineNotification": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CellChangeNotification"
+          },
+          {
+            "$ref": "#/components/schemas/RabEstNotification"
+          },
+          {
+            "$ref": "#/components/schemas/RabModNotification"
+          },
+          {
+            "$ref": "#/components/schemas/RabRelNotification"
+          },
+          {
+            "$ref": "#/components/schemas/MeasRepUeNotification"
+          },
+          {
+            "$ref": "#/components/schemas/NrMeasRepUeNotification"
+          },
+          {
+            "$ref": "#/components/schemas/MeasTaNotification"
+          },
+          {
+            "$ref": "#/components/schemas/CaReconfNotification"
+          },
+          {
+            "$ref": "#/components/schemas/S1BearerNotification"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "notificationType"
+        }
       }
     }
   }

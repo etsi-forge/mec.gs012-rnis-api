@@ -13,37 +13,32 @@ syntax = "proto3";
 package mec012;
 
 import "google/protobuf/empty.proto";
-import public "models/inline_object.proto";
-import public "models/inline_object2.proto";
-import public "models/inline_response200.proto";
-import public "models/inline_response2001.proto";
-import public "models/inline_response2002.proto";
-import public "models/inline_response2003.proto";
-import public "models/inline_response2004.proto";
-import public "models/inline_response2005.proto";
-import public "models/inline_response2006.proto";
-import public "models/inline_response201.proto";
-import public "models/inline_response400.proto";
-import public "models/inline_response403.proto";
+import public "models/inline_subscription.proto";
+import public "models/l2_meas.proto";
+import public "models/plmn_info.proto";
+import public "models/problem_details.proto";
+import public "models/rab_info.proto";
+import public "models/s1_bearer_info.proto";
+import public "models/subscription_link_list.proto";
 
 service RniService {
-  rpc Layer2MeasInfoGET (Layer2MeasInfoGETRequest) returns (InlineResponse2003);
+  rpc Layer2MeasInfoGET (Layer2MeasInfoGETRequest) returns (L2Meas);
 
-  rpc PlmnInfoGET (PlmnInfoGETRequest) returns (InlineResponse2001);
+  rpc PlmnInfoGET (PlmnInfoGETRequest) returns (PlmnInfoGETResponse);
 
-  rpc RabInfoGET (RabInfoGETRequest) returns (InlineResponse200);
+  rpc RabInfoGET (RabInfoGETRequest) returns (RabInfo);
 
-  rpc S1BearerInfoGET (S1BearerInfoGETRequest) returns (InlineResponse2002);
+  rpc S1BearerInfoGET (S1BearerInfoGETRequest) returns (S1BearerInfo);
 
-  rpc SubscriptionLinkListSubscriptionsGET (SubscriptionLinkListSubscriptionsGETRequest) returns (InlineResponse2004);
+  rpc SubscriptionLinkListSubscriptionsGET (SubscriptionLinkListSubscriptionsGETRequest) returns (SubscriptionLinkList);
 
   rpc SubscriptionsDELETE (SubscriptionsDELETERequest) returns (google.protobuf.Empty);
 
-  rpc SubscriptionsGET (SubscriptionsGETRequest) returns (InlineResponse2005);
+  rpc SubscriptionsGET (SubscriptionsGETRequest) returns (InlineSubscription);
 
-  rpc SubscriptionsPOST (SubscriptionsPOSTRequest) returns (InlineResponse201);
+  rpc SubscriptionsPOST (SubscriptionsPOSTRequest) returns (InlineSubscription);
 
-  rpc SubscriptionsPUT (SubscriptionsPUTRequest) returns (InlineResponse2006);
+  rpc SubscriptionsPUT (SubscriptionsPUTRequest) returns (InlineSubscription);
 
 }
 
@@ -135,6 +130,10 @@ message PlmnInfoGETRequest {
 
 }
 
+message PlmnInfoGETResponse {
+  repeated PlmnInfo data = 1;
+}
+
 message RabInfoGETRequest {
   // Application instance identifier
   string appInsId = 1;
@@ -200,14 +199,16 @@ message SubscriptionsGETRequest {
 }
 
 message SubscriptionsPOSTRequest {
-  InlineObject inlineObject = 1;
+  // Subscription to be created
+  InlineSubscription inlineSubscription = 1;
 
 }
 
 message SubscriptionsPUTRequest {
   // Subscription Id, specifically the \"Self-referring URI\" returned in the subscription request
   string subscriptionId = 1;
-  InlineObject2 inlineObject2 = 2;
+  // Subscription to be modified
+  InlineSubscription inlineSubscription = 2;
 
 }
 
