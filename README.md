@@ -4,8 +4,8 @@ This repository contains OpenAPIs descriptions for the interfaces specified in E
 
 ## Online resources
 
-* [Navigate the API in the browser](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/mec/gs012-rnis-api/raw/stf593/RniAPI.yaml).
-* [Edit the API online](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/mec/gs012-rnis-api/raw/stf593/RniAPI.yaml).
+* [Navigate the API in the browser](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/rep/mec/gs012-rnis-api/raw/v2.1.1/RniAPI.yaml).
+* [Edit the API online](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/rep/mec/gs012-rnis-api/raw/v2.1.1/RniAPI.yaml).
 
 ## License
 
