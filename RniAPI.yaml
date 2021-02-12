@@ -1055,25 +1055,25 @@ components:
                 $ref: '#/components/schemas/CellId'
               rsrpNei:
                 description: "Reference Signal Received Power as defined in ETSI TS\_136 214 [i.5]."
-                format: int32
+                format: uint32
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint32
               rsrpSrv:
                 description: "Reference Signal Received Power as defined in ETSI TS\_136 214 [i.5]."
-                format: int32
+                format: uint32
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint32
               rsrqNei:
                 description: Reference Signal Received Quality as defined in ETSI TS 136 214 [i.5].
-                format: int32
+                format: uint32
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint32
               rsrqSrv:
                 description: Reference Signal Received Quality as defined in ETSI TS 136 214 [i.5].
-                format: int32
+                format: uint32
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint32
@@ -1623,19 +1623,19 @@ components:
       properties:
         rsrp:
           description: "Reference Signal Received Power as defined in ETSI TS\_138 331 [i.13]."
-          format: int32
+          format: uint8
           type: integer
           x-etsi-mec-cardinality: 0..1
           x-etsi-mec-origin-type: Uint8
         rsrq:
           description: Reference Signal Received Quality as defined in ETSI TS 138 331 [i.13].
-          format: int32
+          format: uint8
           type: integer
           x-etsi-mec-cardinality: 0..1
           x-etsi-mec-origin-type: Uint8
         sinr:
           description: Reference Signal to Interference & Noise Ratio as defined in ETSI TS 138 331 [i.13].
-          format: int32
+          format: uint8
           type: integer
           x-etsi-mec-cardinality: 0..1
           x-etsi-mec-origin-type: Uint8
@@ -1668,61 +1668,61 @@ components:
                 $ref: '#/components/schemas/CellId'
               rsrpNei:
                 description: "Reference Signal Received Power as defined in ETSI TS\_136 214 [i.5]."
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               rsrpNeiEx:
                 description: Extended Reference Signal Received Power, with value mapping defined in ETSI TS 136 133 [i.16].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               rsrpSrv:
                 description: "Reference Signal Received Power as defined in ETSI TS\_136 214 [i.5]."
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               rsrpSrvEx:
                 description: Extended Reference Signal Received Power, with value mapping defined in ETSI TS 136 133 [i.16].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               rsrqNei:
                 description: Reference Signal Received Quality as defined in ETSI TS 136 214 [i.5].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               rsrqNeiEx:
                 description: Extended Reference Signal Received Quality, with value mapping defined in ETSI TS 136 133 [i.16].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               rsrqSrv:
                 description: Reference Signal Received Quality as defined in ETSI TS 136 214 [i.5].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               rsrqSrvEx:
                 description: Extended Reference Signal Received Quality, with value mapping defined in ETSI TS 136 133 [i.16].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               sinrNei:
                 description: "Reference Signal \"Signal to Interference plus Noise Ratio\", with value mapping defined in ETSI TS\_136\_133\_[i.16]."
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               sinrSrv:
                 description: "Reference Signal \"Signal to Interference plus Noise Ratio\", with value mapping defined in ETSI TS\_136\_133\_[i.16]."
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
@@ -1749,31 +1749,31 @@ components:
                 $ref: '#/components/schemas/Ecgi'
               rsrp:
                 description: "Reference Signal Received Power as defined in ETSI TS\_136 214 [i.5]."
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               rsrpEx:
                 description: Extended Reference Signal Received Power, with value mapping defined in ETSI TS 136 133 [i.16].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               rsrq:
                 description: Reference Signal Received Quality as defined in ETSI TS 136 214 [i.5].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               rsrqEx:
                 description: Extended Reference Signal Received Quality, with value mapping defined in ETSI TS 136 133 [i.16].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               sinr:
                 description: "Reference Signal \"Signal to Interference plus Noise Ratio\", with value mapping defined in ETSI TS\_136\_133\_[i.16]."
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
@@ -1823,19 +1823,19 @@ components:
                     x-etsi-mec-origin-type: Structure (inlined)
                   nrBNCellRsrp:
                     description: Reference Signal Received Power measurement according to mapping table in ETSI TS 138.133 [i.14].
-                    format: int32
+                    format: uint8
                     type: integer
                     x-etsi-mec-cardinality: 0..1
                     x-etsi-mec-origin-type: Uint8
                   nrBNCellRsrq:
                     description: Reference Signal Received Quality measurement according to mapping table in ETSI TS 138.133 [i.14].
-                    format: int32
+                    format: uint8
                     type: integer
                     x-etsi-mec-cardinality: 0..1
                     x-etsi-mec-origin-type: Uint8
                   nrBNCellRssi:
                     description: Reference signal SINR measurement according to mapping table in ETSI TS 138.133 [i.14].
-                    format: int32
+                    format: uint8
                     type: integer
                     x-etsi-mec-cardinality: 0..1
                     x-etsi-mec-origin-type: Uint8
@@ -1846,7 +1846,7 @@ components:
                 x-etsi-mec-origin-type: Structure (inlined)
               nrCarrierFreq:
                 description: "ARFCN applicable for a downlink, uplink or bi-directional (TDD) NR carrier frequency, as defined in ETSI TS\_138.101 [i.15]."
-                format: int32
+                format: uint32
                 type: integer
                 x-etsi-mec-cardinality: '1'
                 x-etsi-mec-origin-type: Uint32
@@ -1880,19 +1880,19 @@ components:
                     x-etsi-mec-origin-type: Structure (inlined)
                   nrSCellRsrp:
                     description: Reference Signal Received Power measurement according to mapping table in ETSI TS 138.133 [i.14].
-                    format: int32
+                    format: uint8
                     type: integer
                     x-etsi-mec-cardinality: 0..1
                     x-etsi-mec-origin-type: Uint8
                   nrSCellRsrq:
                     description: Reference Signal Received Quality measurement according to mapping table in ETSI TS 138.133 [i.14].
-                    format: int32
+                    format: uint8
                     type: integer
                     x-etsi-mec-cardinality: 0..1
                     x-etsi-mec-origin-type: Uint8
                   nrSCellRssi:
                     description: Reference signal SINR measurement according to mapping table in ETSI TS 138.133 [i.14].
-                    format: int32
+                    format: uint8
                     type: integer
                     x-etsi-mec-cardinality: 0..1
                     x-etsi-mec-origin-type: Uint8
@@ -1940,19 +1940,19 @@ components:
                 x-etsi-mec-origin-type: Structure (inlined)
               nrNCellRsrp:
                 description: Reference Signal Received Power measurement according to mapping table in ETSI TS 138.133 [i.14].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               nrNCellRsrq:
                 description: Reference Signal Received Quality measurement according to mapping table in ETSI TS 138.133 [i.14].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               nrNCellRssi:
                 description: Reference signal SINR measurement according to mapping table in ETSI TS 138.133 [i.14].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
@@ -1974,31 +1974,31 @@ components:
           x-etsi-mec-origin-type: String
         rsrp:
           description: "Reference Signal Received Power as defined in ETSI TS\_136 214 [i.5]."
-          format: int32
+          format: uint8
           type: integer
           x-etsi-mec-cardinality: '1'
           x-etsi-mec-origin-type: Uint8
         rsrpEx:
           description: Extended Reference Signal Received Power, with value mapping defined in ETSI TS 136 133 [i.16].
-          format: int32
+          format: uint8
           type: integer
           x-etsi-mec-cardinality: 0..1
           x-etsi-mec-origin-type: Uint8
         rsrq:
           description: Reference Signal Received Quality as defined in ETSI TS 136 214 [i.5].
-          format: int32
+          format: uint8
           type: integer
           x-etsi-mec-cardinality: '1'
           x-etsi-mec-origin-type: Uint8
         rsrqEx:
           description: Extended Reference Signal Received Quality, with value mapping defined in ETSI TS 136 133 [i.16].
-          format: int32
+          format: uint8
           type: integer
           x-etsi-mec-cardinality: 0..1
           x-etsi-mec-origin-type: Uint8
         sinr:
           description: "Reference Signal \"Signal to Interference plus Noise Ratio\", with value mapping defined in ETSI TS\_136\_133\_[i.16]."
-          format: int32
+          format: uint8
           type: integer
           x-etsi-mec-cardinality: 0..1
           x-etsi-mec-origin-type: Uint8
@@ -2119,7 +2119,7 @@ components:
           $ref: '#/components/schemas/TimeStamp'
         timingAdvance:
           description: The timing advance as defined in ETSI TS 136 214 [i.5].
-          format: int32
+          format: uint32
           type: integer
           x-etsi-mec-cardinality: '1'
           x-etsi-mec-origin-type: Uint32
@@ -2235,19 +2235,19 @@ components:
                 $ref: '#/components/schemas/Ecgi'
               rsrp:
                 description: "Reference Signal Received Power as defined in ETSI TS\_138 331 [i.13]."
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               rsrq:
                 description: Reference Signal Received Quality as defined in ETSI TS 138 331 [i.13].
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
               sinr:
                 description: "Reference Signal plus Interference Noise Ratio as defined in ETSI TS\_138\_331\_[i.13]."
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: 0..1
                 x-etsi-mec-origin-type: Uint8
@@ -2496,7 +2496,7 @@ components:
           x-etsi-mec-origin-type: URI
         status:
           description: The HTTP status code for this occurrence of the problem
-          format: int32
+          format: uint32
           type: integer
           x-etsi-mec-cardinality: 0..1
           x-etsi-mec-origin-type: Uint32
@@ -3076,7 +3076,7 @@ components:
             properties:
               csiRsIndex:
                 description: ''
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: '1'
                 x-etsi-mec-origin-type: Uint8
@@ -3115,7 +3115,7 @@ components:
             properties:
               ssbIndex:
                 description: ''
-                format: int32
+                format: uint8
                 type: integer
                 x-etsi-mec-cardinality: '1'
                 x-etsi-mec-origin-type: Uint8
@@ -3509,13 +3509,13 @@ components:
       properties:
         nanoSeconds:
           description: The nanoseconds part of the time. Time is defined as Unix-time since January 1, 1970, 00:00:00 UTC.
-          format: int32
+          format: uint32
           type: integer
           x-etsi-mec-cardinality: '1'
           x-etsi-mec-origin-type: Uint32
         seconds:
           description: The seconds part of the time. Time is defined as Unixtime since January 1, 1970, 00:00:00 UTC.
-          format: int32
+          format: uint32
           type: integer
           x-etsi-mec-cardinality: '1'
           x-etsi-mec-origin-type: Uint32
