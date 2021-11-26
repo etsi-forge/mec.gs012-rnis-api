@@ -5,16 +5,25 @@ info:
   contact:
     url: https://forge.etsi.org/rep/mec/gs012-rnis-api
   version: '2.1.1'
+  license:
+    name: BSD-3-Clause
+    url: 'https://forge.etsi.org/legal-matters'
 jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
+
+externalDocs:
+  description: ETSI GS MEC 012 Radio Network Information API, V2.1.1
+  url: http://www.etsi.org/deliver/etsi_gs/MEC/001_099/012/02.01.01_60/gs_mec012v020101p.pdf
 servers:
 - url: https://localhost/rni/v2
-  variables: {}
+
+tags:
+- name: rni
 paths:
   /queries/rab_info:
     get:
       tags:
       - rni
-      summary: rab_infoGET
+      summary:  'Retrieve information on Radio Access Bearers'
       description: Queries information about the Radio Access Bearers
       operationId: rab_infoGET
       parameters:
@@ -174,7 +183,7 @@ paths:
     get:
       tags:
       - rni
-      summary: plmn_infoGET
+      summary: 'Queries information about the Mobile Network'
       description: Queries information about the Mobile Network
       operationId: plmn_infoGET
       parameters:
@@ -248,7 +257,7 @@ paths:
     get:
       tags:
       - rni
-      summary: s1_bearer_infoGET
+      summary: Retrieve S1-U bearer information related to specific UE(s)'
       description: Queries information about the S1 bearer(s)
       operationId: s1_bearer_infoGET
       parameters:
@@ -372,7 +381,7 @@ paths:
     get:
       tags:
       - rni
-      summary: layer2_meas_infoGET
+      summary: 'Retrieve information on layer 2 measurements'
       description: Queries information about the layer 2 measurements.
       operationId: layer2_meas_infoGET
       parameters:
@@ -755,7 +764,7 @@ paths:
     get:
       tags:
       - rni
-      summary: subscriptionLinkList_subscriptionsGET
+      summary: 'Queries information on subscriptions for notifications'
       description: Queries information on subscriptions for notifications
       operationId: subscriptionLinkList_subscriptionsGET
       parameters:
@@ -774,16 +783,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SubscriptionLinkList'
-              example:
-                _links:
-                  self:
+              
+              examples:
+               example-ofsub-link-list:
+                value:
+                  _links:
+                   self:
                     href: http://meAppServer.example.com/rni/v2/subscriptions
-                subscription:
-                - _links:
-                    self:
+                   subscription:
+                   - _links:
+                     self:
                       href: http://meAppServer.example.com/rni/v2/subscriptions/sub123
-                  callbackReference: http://my.callback.com/rni-cell-change/some-id
-                  subscriptionType: CellChangeSubscription
+                     callbackReference: http://my.callback.com/rni-cell-change/some-id
+                     subscriptionType: CellChangeSubscription
+
         '400':
           description: 'Bad Request : used to indicate that incorrect parameters were passed to the request.'
           headers: {}
@@ -830,7 +843,7 @@ paths:
     post:
       tags:
       - rni
-      summary: subscriptionsPOST
+      summary: 'Creates a new subscription to Radio Network Information notifications'
       description: Creates a new subscription to Radio Network Information notifications
       operationId: subscriptionsPOST
       parameters: []
@@ -851,6 +864,27 @@ paths:
               - $ref: '#/components/schemas/S1BearerSubscription'
               description: Subscription to be created
               contentMediaType: application/json
+            examples:
+              example-cell-change-subscription:callbacks:
+               value:
+                 subscriptionType: CellChangeSubscription
+                 callbackReference: 'http://my.callback.com/rni-cell-change/some-id'
+                 filterCriteriaAssocHo:
+                   appInstanceId: 'myApp'
+                   associateId:
+                   - type: 1
+                     value: '10.100.0.1'
+                   ecgi:
+                   - plmn:
+                       mnc: '01'
+                       mcc: '001'
+                     cellId: 'ACBDEFA'
+                   hoStatus:
+                   - 1
+                   - 2
+                 expiryDeadline:
+                   seconds: 1977836800
+                   nanoSeconds: 0
         required: true
       responses:
         '201':
@@ -870,6 +904,32 @@ paths:
                 - $ref: '#/components/schemas/CaReconfSubscription'
                 - $ref: '#/components/schemas/S1BearerSubscription'
                 contentMediaType: application/json
+              examples:
+                example-call-change-subscription:
+                  value:
+                   subscriptionType: CellChangeSubscription
+                   callbackReference: 'http://my.callback.com/rni-cell-change/some-id'
+                   _links:
+                     self:
+                       href: 'http://meAppServer.example.com/rni/v2/subscriptions/sub123'
+                   filterCriteriaAssocHo:
+                      appInstanceId: 'myApp'
+                      associateId:
+                      - type: 1
+                        value: '10.100.0.1'
+                      ecgi:
+                      - plmn:
+                          mnc: '01'
+                          mcc: '001'
+                        cellId: 'ACBDEFA'
+                      hoStatus:
+                      - 1
+                      - 2
+                   expiryDeadline:
+                     seconds: 1977836800
+                     nanoSeconds: 0
+
+
         '400':
           description: 'Bad Request : used to indicate that incorrect parameters were passed to the request.'
           headers: {}
@@ -919,11 +979,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-              example:
+              examples:
                 application/problem+json:
+                 value:
                   type: https://meAppServer.example.com/rni/v2/probs/too-many targets
                   title: Too many targets
-                  status: '422'
+                  status: 422
                   detail: The target area for the request is considered too large
                   instance: /meAppClient.example.com/77777/msgs/abc
         '429':
@@ -933,13 +994,56 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
+      
+      callbacks: 
+        notification:
+          '{$request.body#/notificationSubscription.callbackReference}':
+            post:
+              summary: 'Callback POST used to send a notification'
+              description: 'Notification from RNIS, content based on subscription type'
+              operationId: notificationPOST
+              requestBody:   
+                 description: Subscription notification
+                 required: true
+                 content:
+                   application/json:
+                     schema:
+                       $ref: '#/components/schemas/InlineNotification'
+                     examples:
+                         message:
+                          value: 
+                           notificationType: CellChangeNotification
+                           associateId:
+                             - type: 1
+                               value: '10.100.0.1'
+                           hoStatus: 1
+                           srcEcgi:
+                             plmn:
+                               mnc: '01'
+                               mcc: '001'
+                             cellId: 'ACBDEFA'
+                           tempUeId:
+                             mmec: 1
+                             mtmsi: 001011231231234
+                           timeStamp:
+                            seconds: 1977836800
+                            nanoSeconds: 0
+                           trgEcgi:
+                            plmn:
+                             mnc: '01'
+                             mcc: '001'
+                           cellId: 'FEDCBAA'
+              responses:
+                '204':
+                 description: "No content"
+
       deprecated: false
     parameters: []
   /subscriptions/{subscriptionId}:
     get:
       tags:
       - rni
-      summary: subscriptionsGET
+      summary: 'Queries information about an existing subscription, identified by its self-referring URI returned on creation (initial POST)'
       description: Queries information about an existing subscription, identified by its self-referring URI returned on creation (initial POST)
       operationId: subscriptionsGET
       parameters:
@@ -968,6 +1072,31 @@ paths:
                 - $ref: '#/components/schemas/CaReconfSubscription'
                 - $ref: '#/components/schemas/S1BearerSubscription'
                 contentMediaType: application/json
+              examples:
+                example-of-cell-change-subscription:
+                  value:
+                   subscriptionType: CellChangeSubscription
+                   callbackReference: 'http://my.callback.com/rni-cell-change/some-id'
+                   _links:
+                     self:
+                       href: 'http://meAppServer.example.com/rni/v2/subscriptions/sub123'
+                   filterCriteriaAssocHo:
+                     appInstanceId: 'myApp'
+                     associateId:
+                     - type: 1
+                       value: '10.100.0.1'
+                     ecgi:
+                     - plmn:
+                         mnc: '01'
+                         mcc: '001'
+                       cellId: 'ACBDEFA'
+                     hoStatus:
+                     - 1
+                     - 2
+                   expiryDeadline:
+                     seconds: 1977836800
+                     nanoSeconds: 0
+
         '400':
           description: 'Bad Request : used to indicate that incorrect parameters were passed to the request.'
           headers: {}
@@ -1014,7 +1143,7 @@ paths:
     put:
       tags:
       - rni
-      summary: subscriptionsPUT
+      summary: 'Updates an existing subscription, identified by its self-referring URI returned on creation (initial POST)'
       description: Updates an existing subscription, identified by its self-referring URI returned on creation (initial POST)
       operationId: subscriptionsPUT
       parameters:
@@ -1042,6 +1171,30 @@ paths:
               - $ref: '#/components/schemas/S1BearerSubscription'
               description: Subscription to be modified
               contentMediaType: application/json
+            examples:
+              example-of-cell-change-subscription:
+                value:
+                 subscriptionType: CellChangeSubscription
+                 callbackReference: 'http://my.callback.com/rni-cell-change/some-id'
+                 _links:
+                   self:
+                     href: 'http://meAppServer.example.com/rni/v2/subscriptions/sub123'
+                 filterCriteriaAssocHo:
+                   appInstanceId: 'myApp'
+                   associateId:
+                   - type: 1
+                     value: '10.100.0.1'
+                   ecgi:
+                   - plmn:
+                       mnc: '01'
+                       mcc: '001'
+                     cellId: 'ACBDEFA'
+                   hoStatus:
+                   - 1
+                   - 2
+                 expiryDeadline:
+                   seconds: 1977836800
+                   nanoSeconds: 0
         required: true
       responses:
         '200':
@@ -1061,6 +1214,30 @@ paths:
                 - $ref: '#/components/schemas/CaReconfSubscription'
                 - $ref: '#/components/schemas/S1BearerSubscription'
                 contentMediaType: application/json
+              examples:
+               example-of-cell-change-subscription:
+                value:
+                 subscriptionType: CellChangeSubscription
+                 callbackReference: 'http://my.callback.com/rni-cell-change/some-id'
+                 _links:
+                   self:
+                     href: 'http://meAppServer.example.com/rni/v2/subscriptions/sub123'
+                 filterCriteriaAssocHo:
+                   appInstanceId: 'myApp'
+                   associateId:
+                   - type: 1
+                     value: '10.100.0.1'
+                   ecgi:
+                   - plmn:
+                       mnc: '01'
+                       mcc: '001'
+                     cellId: 'ACBDEFA'
+                   hoStatus:
+                   - 1
+                   - 2
+                 expiryDeadline:
+                   seconds: 1977836800
+                   nanoSeconds: 0
         '400':
           description: 'Bad Request : used to indicate that incorrect parameters were passed to the request.'
           headers: {}
@@ -1110,11 +1287,12 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/ProblemDetails'
-              example:
+              examples:
                 application/problem+json:
-                  type: https://meAppServer.example.com/rni/v2/probs/too-many targets
+                 value:
+                  type: https://meAppServer.example.com/rni/v2/probs/too-many-targets
                   title: Too many targets
-                  status: '422'
+                  status: 422
                   detail: The target area for the request is considered too large
                   instance: /meAppClient.example.com/77777/msgs/abc
         '429':
@@ -1128,7 +1306,7 @@ paths:
     delete:
       tags:
       - rni
-      summary: subscriptionsDELETE
+      summary: Cancels an existing subscription, identified by its self-referring URI returned on creation (initial POST)
       description: Cancels an existing subscription, identified by its self-referring URI returned on creation (initial POST)
       operationId: subscriptionsDELETE
       parameters:
@@ -1772,7 +1950,7 @@ components:
           minItems: 0
           type: array
           items:
-            $ref: '#/components/schemas/ResultsPerCsiRsIndex2'
+            $ref: '#/components/schemas/ResultsPerCsiRsIndex'
           description: ''
     ResultsPerSsbIndex:
       title: ResultsPerSsbIndex
@@ -1793,7 +1971,7 @@ components:
           minItems: 0
           type: array
           items:
-            $ref: '#/components/schemas/ResultsPerSsbIndex2'
+            $ref: '#/components/schemas/ResultsPerSsbIndex'
           description: ''
     RsIndexResults:
       title: RsIndexResults
@@ -2706,24 +2884,6 @@ components:
           description: This attribute indicates the maximum uplink E-RAB Bit Rate as defined in ETSI TS 123 401 [i.4] for this bearer.
           contentEncoding: int32
       description: The QoS Information for the E-RAB as defined below.
-    ResultsPerCsiRsIndex2:
-      title: ResultsPerCsiRsIndex2
-      type: object
-      properties:
-        csiRsIndex:
-          type: integer
-          contentEncoding: int32
-        csiRsResults:
-          $ref: '#/components/schemas/MeasQuantityResultsNr'
-    ResultsPerSsbIndex2:
-      title: ResultsPerSsbIndex2
-      type: object
-      properties:
-        ssbIndex:
-          type: integer
-          contentEncoding: int32
-        ssbResults:
-          $ref: '#/components/schemas/MeasQuantityResultsNr'
     S1BearerInfoDetailed:
       title: S1BearerInfoDetailed
       type: object
@@ -2925,8 +3085,3 @@ components:
           description: Information on E-RAB as defined below.
 security:
 - {}
-tags:
-- name: rni
-externalDocs:
-  description: ETSI GS MEC 012 Radio Network Information API, V2.1.1
-  url: http://www.etsi.org/deliver/etsi_gs/MEC/001_099/012/02.01.01_60/gs_mec012v020101p.pdf
